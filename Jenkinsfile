@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage('Desplegar CV') {
             steps {
-                // Asegura los permisos e inyecta el archivo en la ruta de Apache/Caddy
-                sh 'mkdir -p /var/www/html/cv_site'
-                sh 'cp index.php /var/www/html/cv_site/'
-                echo '¡CV desplegado correctamente!'
+                // Despliegue en el directorio interno del espacio de trabajo público de Jenkins
+                sh 'mkdir -p ./deploy_site'
+                sh 'cp index.php ./deploy_site/'
+                echo '¡CV desplegado en el entorno local de Jenkins con éxito!'
             }
         }
     }
